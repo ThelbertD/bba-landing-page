@@ -1,0 +1,526 @@
+/* ===================================================================
+   BBA Landing Page — Blue · Black · White
+   Cloned from: bba.betterbodyacademy.com/men---thank-you-page-...
+
+   COLOR SYSTEM
+   Black:  #05070d (base)  · #0c1220 (panel)  · #131b2e (raised card)
+   Blue:   #3b82f6 (primary) · #60a5fa (light) · #1e3a8a (deep)
+   White:  #ffffff · #cbd5e1 (muted) · #64748b (subtle)
+=================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html, body { overflow-x: hidden; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #05070d;
+  color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; }
+
+::selection { background: #3b82f6; color: #ffffff; }
+
+/* ============ LAYOUT ============ */
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; position: relative; }
+
+/* ============ BG GLOW ============ */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(59,130,246,0.20), transparent 55%),
+    radial-gradient(circle at 85% 90%, rgba(30,58,138,0.25), transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(96,165,250,0.05), transparent 70%),
+    linear-gradient(180deg, #05070d 0%, #0a1020 100%);
+  z-index: -1;
+}
+
+/* ============ SHARED TYPOGRAPHY ============ */
+.eyebrow {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  color: #60a5fa;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-label {
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.3em;
+  color: #cbd5e1;
+  margin-bottom: 32px;
+}
+.section-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.section-headline.left { text-align: left; }
+.section-sub {
+  text-align: center;
+  font-size: clamp(16px, 1.8vw, 18px);
+  color: #cbd5e1;
+  margin-bottom: 48px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.grad {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1e3a8a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  padding: 18px 40px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.35);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 44px rgba(59, 130, 246, 0.55);
+  filter: brightness(1.1);
+}
+.btn-platform {
+  background: #0c1220;
+  color: #ffffff;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  font-size: 16px;
+  padding: 16px 28px;
+}
+.btn-platform:hover {
+  background: #131b2e;
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+.platform-icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+}
+.cta-center { text-align: center; margin-top: 48px; }
+
+/* ============ HERO ============ */
+.hero {
+  padding: 170px 0 60px;
+  text-align: center;
+  position: relative;
+}
+@media (max-width: 720px) {
+  .hero { padding: 130px 0 40px; }
+}
+.corner-wordmark {
+  position: absolute;
+  top: 20px;
+  left: 32px;
+  z-index: 40;
+  width: 200px;
+  max-width: 40vw;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5));
+}
+.corner-badge {
+  position: absolute;
+  top: 20px;
+  right: 32px;
+  z-index: 40;
+  width: 100px;
+  max-width: 25vw;
+  height: auto;
+  filter: drop-shadow(0 0 16px rgba(59, 130, 246, 0.5));
+}
+@media (max-width: 720px) {
+  .corner-wordmark { top: 14px; left: 18px; width: 130px; }
+  .corner-badge { top: 14px; right: 18px; width: 72px; }
+}
+.hero-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 7vw, 84px);
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  color: #cbd5e1;
+  max-width: 720px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.hero-image {
+  margin-top: 56px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(59, 130, 246, 0.25);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+.hero-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============ AS SEEN IN ============ */
+.as-seen-in {
+  padding: 40px 0;
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.logo-slot {
+  width: 180px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 18, 32, 0.6);
+  border: 1px dashed rgba(96, 165, 250, 0.3);
+  border-radius: 8px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.2em;
+  color: #64748b;
+}
+
+/* ============ PAIN POINTS ============ */
+.pain-list {
+  max-width: 640px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+}
+.pain-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(12, 18, 32, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  padding: 18px 22px;
+  border-radius: 12px;
+  font-size: 17px;
+  color: #ffffff;
+}
+.bullet-x {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ============ PILLARS ============ */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.pillar-card {
+  background: linear-gradient(180deg, #0c1220 0%, #131b2e 100%);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.2);
+}
+.pillar-card:hover::before { opacity: 1; }
+.pillar-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+  position: relative;
+  z-index: 1;
+}
+.pillar-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  color: #60a5fa;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+.pillar-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.pillar-list {
+  display: grid;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+.pillar-list li {
+  font-size: 14px;
+  color: #cbd5e1;
+  padding-left: 18px;
+  position: relative;
+}
+.pillar-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+/* ============ TRANSFORMATIONS ============ */
+.transformation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.transformation-card {
+  background: #0c1220;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.transformation-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+.ba-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.transformation-name {
+  text-align: center;
+  padding: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* ============ FOUNDER ============ */
+.founder-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.founder-image {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 24px 60px rgba(59, 130, 246, 0.2);
+}
+.founder-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+.founder-copy .section-headline { margin-bottom: 24px; }
+.founder-text {
+  font-size: 18px;
+  color: #cbd5e1;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+/* ============ TESTIMONIALS ============ */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.testimonial-card {
+  background: linear-gradient(180deg, #0c1220 0%, #131b2e 100%);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 14px;
+  padding: 28px 24px;
+  transition: all 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+.stars {
+  color: #60a5fa;
+  letter-spacing: 0.15em;
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+.quote {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #ffffff;
+  margin-bottom: 18px;
+  font-style: italic;
+}
+.reviewer {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.2em;
+  color: #60a5fa;
+  font-size: 14px;
+}
+
+/* ============ PODCAST ============ */
+.podcast-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+.podcast-cover {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(59, 130, 246, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+.podcast-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.podcast-copy .section-headline { margin-bottom: 16px; }
+.podcast-sub {
+  font-size: 20px;
+  color: #60a5fa;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+.podcast-text {
+  font-size: 17px;
+  color: #cbd5e1;
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+.podcast-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ============ FOOTER ============ */
+.page-footer {
+  padding: 60px 0 40px;
+  border-top: 1px solid rgba(59, 130, 246, 0.12);
+  margin-top: 40px;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.footer-logo { height: 40px; opacity: 0.85; }
+.copyright {
+  color: #64748b;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 880px) {
+  .section { padding: 60px 0; }
+  .founder-inner,
+  .podcast-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .section-headline.left { text-align: center; }
+  .founder-copy,
+  .podcast-copy { text-align: center; }
+  .podcast-ctas { justify-content: center; }
+  .logo-row { gap: 24px; }
+  .logo-slot { width: 140px; height: 52px; font-size: 14px; }
+}
+@media (max-width: 560px) {
+  .hero { padding: 60px 0 40px; }
+  .btn { padding: 16px 28px; font-size: 16px; letter-spacing: 0.1em; }
+  .pillar-grid,
+  .transformation-grid,
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .transformation-card,
+  .pillar-card { max-width: 360px; margin: 0 auto; }
+}

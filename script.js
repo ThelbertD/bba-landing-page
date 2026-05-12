@@ -1,0 +1,29 @@
+// ============ Smooth scroll for CTA anchors ============
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ============ Reveal-on-scroll for sections ============
+const revealEls = document.querySelectorAll('.section, .hero');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+
+// inject reveal styles once
+const style = document.createElement('style');
+style.textContent = `
+  .section, .hero { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .section.in-view, .hero.in-view { opacity: 1; transform: none; }
+`;
+document.head.appendChild(style);
