@@ -1,12 +1,27 @@
 // ============ Smooth scroll for CTA anchors ============
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
-    const target = document.querySelector(link.getAttribute('href'));
+    const href = link.getAttribute('href');
+    if (href === '#') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+// ============ Navbar scrolled state ============
+const navbar = document.querySelector('.navbar');
+const onScroll = () => {
+  if (window.scrollY > 60) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
 // ============ Reveal-on-scroll for sections ============
 const revealEls = document.querySelectorAll('.section, .hero');
