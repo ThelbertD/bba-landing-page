@@ -527,6 +527,18 @@ button { font-family: inherit; cursor: pointer; }
   color: #3b82f6;
   font-weight: 700;
 }
+.pillar-text {
+  display: grid;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+.pillar-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
 
 /* ============ TRANSFORMATIONS ============ */
 .transformation-grid {
@@ -695,6 +707,165 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 14px;
   letter-spacing: 0.05em;
 }
+
+/* ============ APPLICATION ============ */
+.application {
+  background: linear-gradient(180deg, #0a1020 0%, #05070d 100%);
+}
+.application-form-wrap {
+  max-width: 720px;
+  margin: 48px auto 0;
+}
+.application-form-placeholder {
+  border: 2px dashed rgba(56, 182, 255, 0.4);
+  background: rgba(56, 182, 255, 0.04);
+  border-radius: 16px;
+  padding: 60px 28px;
+  text-align: center;
+}
+.placeholder-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #38B6FF;
+  margin: 0 0 12px;
+}
+.placeholder-text {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+.application-form-wrap iframe {
+  width: 100%;
+  min-height: 720px;
+  border: 0;
+  border-radius: 16px;
+  background: #0c1220;
+}
+.application-footnote {
+  max-width: 680px;
+  margin: 28px auto 0;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ============ FAQ ============ */
+.faq {
+  background: linear-gradient(180deg, #05070d 0%, #0a1020 100%);
+}
+.faq-list {
+  max-width: 820px;
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.faq-item {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.faq-item[open] {
+  border-color: rgba(56, 182, 255, 0.35);
+  background: rgba(56, 182, 255, 0.04);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-weight: 600;
+  font-size: 17px;
+  color: #fff;
+  line-height: 1.4;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: #60a5fa; }
+.faq-toggle {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+.faq-item[open] .faq-toggle {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  padding: 0 24px 22px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.faq-answer p { margin: 0; }
+.faq-answer a {
+  color: #60a5fa;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.4);
+}
+.faq-answer a:hover { color: #93c5fd; border-bottom-color: #93c5fd; }
+@media (max-width: 560px) {
+  .faq-item summary { padding: 16px 18px; font-size: 16px; }
+  .faq-answer { padding: 0 18px 18px; font-size: 15px; }
+}
+
+/* ============ FINAL CTA ============ */
+.final-cta {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(56, 182, 255, 0.18), transparent 60%),
+    linear-gradient(180deg, #05070d 0%, #0a1020 100%);
+  text-align: center;
+}
+.final-cta-headline {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+.final-cta-sub {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+}
+.final-cta-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.final-cta-footnote {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+.final-cta-footnote a {
+  color: #60a5fa;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.4);
+}
+.final-cta-footnote a:hover { color: #93c5fd; border-bottom-color: #93c5fd; }
+.final-cta-footnote a.link-pink { color: #f472b6; border-bottom-color: rgba(244, 114, 182, 0.4); }
+.final-cta-footnote a.link-pink:hover { color: #f9a8d4; border-bottom-color: #f9a8d4; }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 880px) {

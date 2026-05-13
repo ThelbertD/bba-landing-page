@@ -43,6 +43,26 @@
       display: grid;
       place-items: center;
     }
+
+    @keyframes beam-spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes lines-slide {
+      0% { background-position: 0 0; }
+      100% { background-position: 24px 0; }
+    }
+    [style*="--border-gradient"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: var(--border-radius-before, inherit);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      background: var(--border-gradient);
+      pointer-events: none;
+    }
   </style>
 </head>
 
@@ -61,27 +81,12 @@
         <a href="#why">Why You're Stuck</a>
         <a href="#fix">The Fix</a>
         <a href="#proof">Proof</a>
+        <a href="#faq">FAQ</a>
       </nav>
-      <button
+      <button onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})"
         class="group inline-flex overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] focus:outline-none sm:w-auto text-sm font-medium text-white w-full h-[54px] rounded-full pt-4 pr-8 pb-4 pl-8 relative items-center justify-center"
         style="position: relative; --border-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
-        <style>
-          @keyframes beam-spin {
-            to {
-              transform: rotate(360deg);
-            }
-          }
-
-          @keyframes lines-slide {
-            0% {
-              background-position: 0 0;
-            }
-
-            100% {
-              background-position: 24px 0;
-            }
-          }
-        </style> <!-- Full Border Beam (Clean Blue Line) -->
+        <!-- Full Border Beam (Clean Blue Line) -->
         <div class="absolute inset-0 -z-20 rounded-full overflow-hidden p-[1px]">
           <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#3b82f6_360deg)]"
             style="animation: beam-spin 3s linear infinite;"></div>
@@ -90,10 +95,7 @@
         <div class="overflow-hidden bg-[#0A0A0A] rounded-full absolute top-[2px] right-[2px] bottom-[2px] left-[2px]">
           <!-- Gradient Background -->
           <div class="bg-gradient-to-b from-blue-900/20 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
-          <!-- Vertical Lines Animation (Smaller & Monotone) -->
-          <div class="opacity-[0.07] mix-blend-plus-lighter absolute top-0 right-0 bottom-0 left-0"
-            style="background-image: repeating-linear-gradient(90deg, #fff, #fff 1px, transparent 1px, transparent 8px);  background-size: 24px 100%;  animation: lines-slide 1.5s linear infinite; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))">
-          </div> <!-- Blue Glow on Hover -->
+          <!-- Blue Glow on Hover -->
           <div
             class="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-blue-500/20 blur-2xl rounded-full pointer-events-none transition-colors duration-500 group-hover:bg-blue-500/40">
           </div>
@@ -105,20 +107,6 @@
           <path d="M5 12h14" class=""></path>
           <path d="m12 5 7 7-7 7" class=""></path>
         </svg>
-        <style id="border-gradient-shared-style">
-          [style*="--border-gradient"]::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            padding: 1px;
-            border-radius: var(--border-radius-before, inherit);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            background: var(--border-gradient);
-            pointer-events: none;
-          }
-        </style>
       </button>
     </div>
   </header>
@@ -166,12 +154,36 @@
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="https://betterbodyacademy.com"
-          class="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-[#38B6FF] to-[#3b82f6] text-white px-7 py-4 text-sm font-bold uppercase tracking-wider shadow-[0_10px_30px_-10px_rgba(56,182,255,0.7)] hover:-translate-y-0.5 transition-all">
-          Head to the main site <span aria-hidden="true">→</span>
+          class="group inline-flex overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] focus:outline-none sm:w-auto text-sm font-medium text-white w-full h-[54px] rounded-full pt-4 pr-8 pb-4 pl-8 relative items-center justify-center"
+          style="position: relative; --border-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
+          <div class="absolute inset-0 -z-20 rounded-full overflow-hidden p-[1px]">
+            <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#3b82f6_360deg)]"
+              style="animation: beam-spin 3s linear infinite;"></div>
+            <div class="absolute inset-[1px] rounded-full bg-[#050505]"></div>
+          </div>
+          <div class="overflow-hidden bg-[#0A0A0A] rounded-full absolute top-[2px] right-[2px] bottom-[2px] left-[2px]">
+            <div class="bg-gradient-to-b from-blue-900/20 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-blue-500/20 blur-2xl rounded-full pointer-events-none transition-colors duration-500 group-hover:bg-blue-500/40"></div>
+          </div>
+          <span class="transition-colors group-hover:text-white uppercase font-semibold text-white/90 tracking-tight z-10 relative">Head to main site</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 ml-2 transition-transform duration-300 group-hover:translate-x-1">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
         </a>
         <a href="index.html"
-          class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-[#38B6FF]/60 text-[#38B6FF] px-7 py-4 text-sm font-bold uppercase tracking-wider hover:bg-[#38B6FF] hover:text-[#02040a] hover:border-[#38B6FF] transition-all">
-          Back to splitter
+          class="group inline-flex overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] focus:outline-none sm:w-auto text-sm font-medium text-white w-full h-[54px] rounded-full pt-4 pr-8 pb-4 pl-8 relative items-center justify-center"
+          style="position: relative; --border-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
+          <div class="absolute inset-0 -z-20 rounded-full overflow-hidden p-[1px]">
+            <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#3b82f6_360deg)]"
+              style="animation: beam-spin 3s linear infinite;"></div>
+            <div class="absolute inset-[1px] rounded-full bg-[#050505]"></div>
+          </div>
+          <div class="overflow-hidden bg-[#0A0A0A] rounded-full absolute top-[2px] right-[2px] bottom-[2px] left-[2px]">
+            <div class="bg-gradient-to-b from-blue-900/20 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-blue-500/20 blur-2xl rounded-full pointer-events-none transition-colors duration-500 group-hover:bg-blue-500/40"></div>
+          </div>
+          <span class="transition-colors group-hover:text-white uppercase font-semibold text-white/90 tracking-tight z-10 relative">Back to splitter</span>
         </a>
       </div>
 
@@ -212,7 +224,24 @@
       </ul>
 
       <div class="cta-center">
-        <a href="#cta" class="btn btn-primary">TELL ME MORE</a>
+        <a href="#cta"
+          class="group inline-flex overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] focus:outline-none sm:w-auto text-sm font-medium text-white w-full h-[54px] rounded-full pt-4 pr-8 pb-4 pl-8 relative items-center justify-center"
+          style="position: relative; --border-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
+          <div class="absolute inset-0 -z-20 rounded-full overflow-hidden p-[1px]">
+            <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#3b82f6_360deg)]"
+              style="animation: beam-spin 3s linear infinite;"></div>
+            <div class="absolute inset-[1px] rounded-full bg-[#050505]"></div>
+          </div>
+          <div class="overflow-hidden bg-[#0A0A0A] rounded-full absolute top-[2px] right-[2px] bottom-[2px] left-[2px]">
+            <div class="bg-gradient-to-b from-blue-900/20 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-blue-500/20 blur-2xl rounded-full pointer-events-none transition-colors duration-500 group-hover:bg-blue-500/40"></div>
+          </div>
+          <span class="transition-colors group-hover:text-white uppercase font-semibold text-white/90 tracking-tight z-10 relative">Tell me more</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 ml-2 transition-transform duration-300 group-hover:translate-x-1">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -229,51 +258,64 @@
       <div class="pillar-grid">
         <article class="pillar-card">
           <div class="pillar-icon">01</div>
-          <h3 class="pillar-title">PILLAR 1</h3>
           <p class="pillar-name">Nutrition That Fits Real Life</p>
-          <ul class="pillar-list">
-            <li>No restrictive diets</li>
-            <li>Eat out without guilt</li>
-            <li>Built for busy schedules</li>
-          </ul>
+          <div class="pillar-text">
+            <p>No restrictive diets</p>
+            <p>Eat out without guilt</p>
+            <p>Built for busy schedules</p>
+          </div>
         </article>
 
         <article class="pillar-card">
           <div class="pillar-icon">02</div>
-          <h3 class="pillar-title">PILLAR 2</h3>
           <p class="pillar-name">Smart Strength Training</p>
-          <ul class="pillar-list">
-            <li>3–4 sessions a week max</li>
-            <li>Joint-friendly programming</li>
-            <li>Track progress, not pain</li>
-          </ul>
+          <div class="pillar-text">
+            <p>3–4 sessions a week max</p>
+            <p>Joint-friendly programming</p>
+            <p>Track progress, not pain</p>
+          </div>
         </article>
 
         <article class="pillar-card">
           <div class="pillar-icon">03</div>
-          <h3 class="pillar-title">PILLAR 3</h3>
           <p class="pillar-name">Recovery &amp; Hormones</p>
-          <ul class="pillar-list">
-            <li>Sleep that actually restores</li>
-            <li>Stress-load management</li>
-            <li>Hormone-supportive habits</li>
-          </ul>
+          <div class="pillar-text">
+            <p>Sleep that actually restores</p>
+            <p>Stress-load management</p>
+            <p>Hormone-supportive habits</p>
+          </div>
         </article>
 
         <article class="pillar-card">
           <div class="pillar-icon">04</div>
-          <h3 class="pillar-title">PILLAR 4</h3>
           <p class="pillar-name">Accountability That Works</p>
-          <ul class="pillar-list">
-            <li>Weekly check-ins</li>
-            <li>Coach-led course corrections</li>
-            <li>A team in your corner</li>
-          </ul>
+          <div class="pillar-text">
+            <p>Weekly check-ins</p>
+            <p>Coach-led course corrections</p>
+            <p>A team in your corner</p>
+          </div>
         </article>
       </div>
 
       <div class="cta-center">
-        <a href="#cta" class="btn btn-primary">TELL ME MORE</a>
+        <a href="#cta"
+          class="group inline-flex overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] focus:outline-none sm:w-auto text-sm font-medium text-white w-full h-[54px] rounded-full pt-4 pr-8 pb-4 pl-8 relative items-center justify-center"
+          style="position: relative; --border-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
+          <div class="absolute inset-0 -z-20 rounded-full overflow-hidden p-[1px]">
+            <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#3b82f6_360deg)]"
+              style="animation: beam-spin 3s linear infinite;"></div>
+            <div class="absolute inset-[1px] rounded-full bg-[#050505]"></div>
+          </div>
+          <div class="overflow-hidden bg-[#0A0A0A] rounded-full absolute top-[2px] right-[2px] bottom-[2px] left-[2px]">
+            <div class="bg-gradient-to-b from-blue-900/20 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-blue-500/20 blur-2xl rounded-full pointer-events-none transition-colors duration-500 group-hover:bg-blue-500/40"></div>
+          </div>
+          <span class="transition-colors group-hover:text-white uppercase font-semibold text-white/90 tracking-tight z-10 relative">Tell me more</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 ml-2 transition-transform duration-300 group-hover:translate-x-1">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -320,6 +362,36 @@
           <p class="transformation-name">Client 8</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 6. APPLICATION -->
+  <section class="application section" id="cta">
+    <div class="container">
+      <h2 class="section-headline">
+        Two-Minute
+        <span class="grad">Application</span>
+      </h2>
+      <p class="section-sub">A coach reads every one personally. If it's a fit, you'll pick a time to chat. If it's
+        not, we'll tell you straight — no sales pitch.</p>
+
+      <div class="application-form-wrap">
+        <!--
+          GHL Application Form Embed
+          Jase: paste your GHL application form iframe embed code below (replace the placeholder block).
+          Preserves all Apr 2 automations (dual email, 10-min no-show trigger, Vancouver timezone output).
+          File: men.html · find "GHL Application Form Embed"
+        -->
+        <div class="application-form-placeholder">
+          <p class="placeholder-eyebrow">GHL Application Form Embed</p>
+          <p class="placeholder-text">Paste your GoHighLevel iframe embed code here to replace this placeholder.</p>
+        </div>
+      </div>
+
+      <p class="application-footnote">
+        After you submit, you'll land on the calendar to pick a time. Your details stay exactly where they need to —
+        straight into the BBA sales tracker.
+      </p>
     </div>
   </section>
 
@@ -556,6 +628,128 @@
         </article>
 
       </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section class="faq section" id="faq">
+    <div class="container">
+      <h2 class="section-headline">
+        Frequently Asked
+        <span class="grad">Questions</span>
+      </h2>
+      <p class="section-sub">The stuff blokes ask before they sign up. Straight answers, no fluff.</p>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>
+            <span>I've tried everything. Will this actually work?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>That's why we built it. The reason you've failed before isn't you — it's that every program you've
+              tried was built for someone whose life looks nothing like yours. We start with the reality of your week,
+              not a fantasy version of it.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>I've got zero time. Genuinely.</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Then you're exactly who this is built for. Short, focused sessions. Meals that don't require
+              meal-prepping on Sunday like a gym bro. The whole system is designed around men with careers, families,
+              and limited hours.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Do I have to go keto / carnivore / no carbs?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>No. No extreme diets. You'll eat real food, drink the occasional beer, and still get leaner every week.
+              If a coach tells you a food is 'bad,' they're selling you religion, not results.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>What if I'm 10kg over? What if I'm 40kg over?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>We've coached both ends of that spectrum and everyone in between. The system doesn't change based on
+              how much you have to lose — the timeline does.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>What about Ozempic?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>That's a chat for your GP. What I'll tell you is this: quick fixes lead to quick failures. The weight
+              comes back the second you stop. You're not broken because you haven't found the right pill — you're
+              stuck because you haven't built a system.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Is this for women too?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>No — this page is the men's program. Women should check out the <a href="women.html">women's side</a>,
+              coached by Carly and Erin. The physiology's different and we don't do one-size-fits-all.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FINAL CTA -->
+  <section class="final-cta section">
+    <div class="container">
+      <h2 class="final-cta-headline">
+        If this is your <span class="grad">last shot</span>,<br />
+        let's make sure it lands.
+      </h2>
+      <p class="final-cta-sub">
+        You've read enough. You already know which of the six pain points hit. The application's two minutes. A coach
+        reads every one.
+      </p>
+
+      <div class="final-cta-actions">
+        <a href="#cta"
+          class="group inline-flex overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] focus:outline-none sm:w-auto text-sm font-medium text-white w-full h-[54px] rounded-full pt-4 pr-8 pb-4 pl-8 relative items-center justify-center"
+          style="position: relative; --border-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
+          <div class="absolute inset-0 -z-20 rounded-full overflow-hidden p-[1px]">
+            <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#3b82f6_360deg)]"
+              style="animation: beam-spin 3s linear infinite;"></div>
+            <div class="absolute inset-[1px] rounded-full bg-[#050505]"></div>
+          </div>
+          <div class="overflow-hidden bg-[#0A0A0A] rounded-full absolute top-[2px] right-[2px] bottom-[2px] left-[2px]">
+            <div class="bg-gradient-to-b from-blue-900/20 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-blue-500/20 blur-2xl rounded-full pointer-events-none transition-colors duration-500 group-hover:bg-blue-500/40"></div>
+          </div>
+          <span class="transition-colors group-hover:text-white uppercase font-semibold text-white/90 tracking-tight z-10 relative">Apply for coaching</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 ml-2 transition-transform duration-300 group-hover:translate-x-1">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <p class="final-cta-footnote">
+        Not for you? Head <a href="index.html">back to the splitter</a> or check the
+        <a href="women.html" class="link-pink">women's side</a>.
+      </p>
     </div>
   </section>
 
